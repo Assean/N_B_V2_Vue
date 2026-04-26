@@ -11,6 +11,6 @@
     <script src="./js/vue.3.5.13.js"></script>
 </head>
 <body>
-    
+    <?php include_once("./include/header.php");include_once("./include/db.php"); ?>
 </body>
 </html>
