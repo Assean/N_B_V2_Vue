@@ -5,7 +5,7 @@
         <?php if(!isset($_SESSION['user'])){ ?>
             <a href="./api/chack_login.php" class="ml-3">系統管理</a>
         <?php }else{ ?>
-            <a href="./pages/admin_index.php" class="ml-3">系統管理</a>
+            <a href="./api/chack_login.php" class="ml-3">系統管理</a>
             <a href="./api/logout.php" class="ml-3">登出</a>
         <?php } ?>
     </div>
