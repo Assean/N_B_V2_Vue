@@ -12,41 +12,6 @@
 </head>
 <body>
     <?php include_once("./include/header.php");include_once("./include/db.php"); ?>
-    <main>
-        <form action="" method="post">
-            <h2>網站管理-登入</h2>
-            <div id="username_div">
-                <label for="username">帳號</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div id="password_div">
-                <label for="password">帳號</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div id="ver_div">
-                <label for="ver">帳號</label>
-                <input type="number" name="ver" id="ver">
-            </div>
-            <div>
-                <div class="btn btn-primary btn-lg m-2" id="captcha"></div>
-            </div>
-        </form>
-    </main>
-    <script>
-        getCode()
-
-        //重設驗證碼時，使用ajax向後端請求新的驗證碼，並更新至btnCode按鈕中
-        $("#regenerate-captcha-button").on('click',function(){
-            getCode()
-        })
-
-
-        //將更新驗證碼的功能包裝成一個函式
-        function getCode(){
-            $.get("./api/captcha.php",(captcha)=>{
-                $("#captcha").text(captcha)
-            })
-        }
-    </script>
+    
 </body>
 </html>
