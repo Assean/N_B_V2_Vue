@@ -18,51 +18,6 @@
     </div>
 </header>
 
-<!-- 引入 Vue 3 (假設你使用 CDN，如果有本地檔案請改成相對路徑) -->
-<script src="../js/vue.3.5.13.js"></script>
-
-<script>
-{  // <--- 加上左大括號
-    const { createApp, ref, onMounted } = Vue;
-
-    createApp({
-        setup() {
-            const isLoggedIn = ref(false);
-
-            const checkLoginStatus = async () => {
-                try {
-                    // 請確認這邊的 API 路徑是否正確
-                    const response = await fetch('./api/get_auth_status.php'); 
-                    const result = await response.json();
-                    isLoggedIn.value = result.isLoggedIn;
-                } catch (error) {
-                    console.error('無法取得登入狀態:', error);
-                }
-            };
-
-            const logout = async () => {
-                try {
-                    await fetch('./api/logout.php');
-                    isLoggedIn.value = false;
-                    window.location.href = 'index.php'; 
-                } catch (error) {
-                    console.error('登出失敗:', error);
-                }
-            };
-
-            onMounted(() => {
-                checkLoginStatus();
-            });
-
-            return {
-                isLoggedIn,
-                logout
-            };
-        }
-    }).mount('#header-app');
-} // <--- 加上右大括號
-</script>
-
 <style>
 /* 搭配 v-cloak 防止畫面閃爍 */
 [v-cloak] {
