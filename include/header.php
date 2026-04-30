@@ -22,49 +22,45 @@
 <script src="../js/vue.3.5.13.js"></script>
 
 <script>
-const { createApp, ref, onMounted } = Vue;
+{  // <--- 加上左大括號
+    const { createApp, ref, onMounted } = Vue;
 
-createApp({
-    setup() {
-        // 定義響應式變數，預設為未登入
-        const isLoggedIn = ref(false);
+    createApp({
+        setup() {
+            const isLoggedIn = ref(false);
 
-        // 檢查登入狀態的函數
-        const checkLoginStatus = async () => {
-            try {
-                // 呼叫我們剛剛改寫的 PHP API
-                const response = await fetch('./api/get_auth_status.php');
-                const result = await response.json();
-                
-                // 根據後端回傳的結果更新狀態
-                isLoggedIn.value = result.isLoggedIn;
-            } catch (error) {
-                console.error('無法取得登入狀態:', error);
-            }
-        };
+            const checkLoginStatus = async () => {
+                try {
+                    // 請確認這邊的 API 路徑是否正確
+                    const response = await fetch('./api/get_auth_status.php'); 
+                    const result = await response.json();
+                    isLoggedIn.value = result.isLoggedIn;
+                } catch (error) {
+                    console.error('無法取得登入狀態:', error);
+                }
+            };
 
-        // 登出函數 (如果你原本的 logout.php 也是用跳轉的，建議也改成回傳 JSON)
-        const logout = async () => {
-            try {
-                await fetch('./api/logout.php');
-                isLoggedIn.value = false;
-                window.location.href = 'index.php'; // 登出後導回前台首頁
-            } catch (error) {
-                console.error('登出失敗:', error);
-            }
-        };
+            const logout = async () => {
+                try {
+                    await fetch('./api/logout.php');
+                    isLoggedIn.value = false;
+                    window.location.href = 'index.php'; 
+                } catch (error) {
+                    console.error('登出失敗:', error);
+                }
+            };
 
-        // 元件掛載時執行檢查
-        onMounted(() => {
-            checkLoginStatus();
-        });
+            onMounted(() => {
+                checkLoginStatus();
+            });
 
-        return {
-            isLoggedIn,
-            logout
-        };
-    }
-}).mount('#header-app');
+            return {
+                isLoggedIn,
+                logout
+            };
+        }
+    }).mount('#header-app');
+} // <--- 加上右大括號
 </script>
 
 <style>
