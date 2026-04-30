@@ -11,9 +11,3 @@
         <a href="#" class="ml-3" v-if="isLoggedIn" @click.prevent="logout">登出</a>
     </div>
 </header>
-
-<style>
-[v-cloak] {
-    display: none;
-}
-</style>
