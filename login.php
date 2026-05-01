@@ -20,11 +20,11 @@
                 <input type="text" name="username" id="username">
             </div>
             <div id="password_div">
-                <label for="password">帳號</label>
+                <label for="password">密碼</label>
                 <input type="password" name="password" id="password">
             </div>
             <div id="ver_div">
-                <label for="ver">帳號</label>
+                <label for="ver">驗證碼</label>
                 <input type="number" name="ver" id="ver">
             </div>
             <div>
