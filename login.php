@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
         getCode()
 
         //重設驗證碼時，使用ajax向後端請求新的驗證碼，並更新至btnCode按鈕中
-        $("#regenerate-captcha-button").on('click',function(){
+        $("#captcha").on('click',function(){
             getCode()
         })
 
